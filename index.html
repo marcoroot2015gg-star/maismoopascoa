@@ -3,417 +3,1037 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KampSmart | Landing estilo Shopify</title>
+    <title>Pré-treinos | Loja — mesmo layout Nuvemshop / Mais Mu</title>
     <meta
       name="description"
-      content="Landing completa estilo Shopify, mobile-first, com GIFs, prova social, descricao comercial e alto foco em conversao."
+      content="Catálogo estilo categoria Pré-treinos: grid, filtros, ordenação e cards como na loja de referência, com a base visual do projeto."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #f5f5f7;
-        --surface: #ffffff;
-        --text: #111827;
+        --bg: #ffffff;
+        --text: #000000;
         --muted: #4b5563;
         --line: #e5e7eb;
-        --brand: #15803d;
-        --brand-2: #0f766e;
-        --danger: #b91c1c;
-        --max: 1200px;
-        --radius: 14px;
+        --navy: #151541;
+        --accent: #e6214e;
+        --info: #00a0e3;
+        --btn-bg: #151541;
+        --btn-fg: #ffffff;
+        --bar-bg: #00a0e3;
+        --radius: 4px;
+        --max: 1320px;
+        --gutter: 15px;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        font-family: "Inter", sans-serif;
+        font-family: "Archivo", system-ui, sans-serif;
         background: var(--bg);
         color: var(--text);
+        font-size: 14px;
+        padding-bottom: env(safe-area-inset-bottom, 0);
       }
       img { max-width: 100%; display: block; }
-      .container { width: min(100% - 24px, var(--max)); margin-inline: auto; }
+      a { color: inherit; }
+
       .bar {
-        background: #166534;
+        background: var(--bar-bg);
         color: #fff;
         font-size: 12px;
         font-weight: 700;
         text-align: center;
-        padding: 10px;
-        letter-spacing: .02em;
+        padding: 10px var(--gutter);
+        letter-spacing: 0.02em;
       }
-      .hero { padding: 16px 0 8px; }
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-      }
-      .gallery { padding: 10px; }
-      .main-image {
-        aspect-ratio: 1/1;
-        object-fit: contain;
-        background: #fff;
-        border-radius: 10px;
-        border: 1px solid var(--line);
-      }
-      .thumbs { margin-top: 8px; display: flex; flex-wrap: nowrap; gap: 4px; overflow-x: auto; }
-      .thumb {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-        padding: 2px;
-        width: 56px;
-        min-width: 56px;
-      }
-      .thumb.is-active { border-color: #111; }
-      .info { padding: 14px; }
-      .rating { font-size: 13px; color: #6b7280; margin-bottom: 8px; }
-      .rating .stars { color: #f59e0b; }
-      h1 {
-        margin: 0;
-        font-size: 28px;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-      }
-      .verified-badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 22px;
-        height: 22px;
-        margin-left: 6px;
-        border-radius: 999px;
-        background: #1d9bf0;
+      .bar a {
         color: #fff;
-        font-size: 13px;
+        margin-left: 8px;
+        text-decoration: underline;
         font-weight: 800;
-        vertical-align: middle;
       }
-      .subtitle { margin: 12px 0; color: var(--muted); line-height: 1.5; font-size: 15px; }
-      .seller-line {
-        margin: 8px 0 10px;
-        font-size: 13px;
-        color: #374151;
-        font-weight: 600;
+      .bar a:hover {
+        color: #e0f4fc;
       }
-      .pricing {
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+      }
+      .header-inner {
+        width: min(100% - 2 * var(--gutter), var(--max));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 12px;
+        align-items: center;
+        padding: 12px 0;
+      }
+      .logo-block {
+        text-decoration: none;
+        text-align: center;
         display: flex;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin: 12px 0 4px;
+        justify-content: center;
+        min-width: 0;
       }
-      .old { text-decoration: line-through; color: #6b7280; font-size: 14px; }
-      .new { font-size: 30px; font-weight: 800; }
-      .off {
-        font-size: 11px;
-        font-weight: 700;
-        padding: 4px 8px;
-        border-radius: 999px;
-        color: #991b1b;
-        background: #fee2e2;
+      .logo-block img {
+        height: 60px;
+        width: auto;
+        max-width: min(247px, 49vw);
+        object-fit: contain;
+        display: block;
       }
-      .pix { color: var(--danger); font-size: 13px; font-weight: 700; }
-      .variants { margin-top: 12px; }
-      .variants p { margin: 0 0 8px; font-size: 13px; font-weight: 600; }
-      .variant-grid {
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        gap: 8px;
+      @media (min-width: 768px) {
+        .logo-block img {
+          height: 75px;
+          max-width: 312px;
+        }
       }
-      .variant {
+      .search-wrap {
+        display: none;
+      }
+      @media (min-width: 768px) {
+        .search-wrap {
+          display: block;
+        }
+      }
+      .search-form {
+        display: flex;
         border: 1px solid var(--line);
-        border-radius: 10px;
-        padding: 8px 6px;
-        text-align: center;
+        border-radius: var(--radius);
+        overflow: hidden;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .search-form input {
+        flex: 1;
+        border: 0;
+        padding: 10px 12px;
+        font-family: inherit;
+        font-size: 14px;
+      }
+      .search-form button {
+        border: 0;
+        background: var(--navy);
+        color: #fff;
+        padding: 0 16px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .header-tools {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+      .icon-btn {
+        width: 40px;
+        height: 40px;
+        border: 0;
+        background: transparent;
+        border-radius: var(--radius);
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        color: var(--navy);
+      }
+      .icon-btn svg { width: 22px; height: 22px; }
+      .cart-badge {
+        position: relative;
+      }
+      .cart-badge[data-count="0"] .badge-count { display: none; }
+      .badge-count {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        min-width: 18px;
+        height: 18px;
+        padding: 0 4px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-desktop {
+        display: none;
+        border-top: 1px solid var(--line);
         background: #fff;
+      }
+      @media (min-width: 768px) {
+        .nav-desktop {
+          display: block;
+        }
+      }
+      .nav-scroll {
+        width: min(100% - 2 * var(--gutter), var(--max));
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 20px;
+        padding: 10px 0;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--navy);
+      }
+      .nav-scroll a {
+        text-decoration: none;
+        padding: 4px 0;
+      }
+      .nav-scroll a:hover { color: var(--accent); }
+      .nav-scroll a.is-active {
+        box-shadow: 0 2px 0 var(--navy);
+      }
+
+      .cat-banner img {
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+      }
+
+      .mobile-category-controls {
+        display: none;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+        position: sticky;
+        top: var(--mobile-controls-top, 72px);
+        z-index: 40;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+      }
+      @media (max-width: 767.98px) {
+        .mobile-category-controls {
+          display: block;
+        }
+      }
+      .mobile-category-controls .category-controls-container {
+        width: 100%;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 var(--gutter);
+      }
+      .category-controls-row {
+        display: flex;
+      }
+      .category-controls-row .category-control-item {
+        flex: 1;
+        border-right: 1px solid var(--line);
+      }
+      .category-controls-row .category-control-item:last-child {
+        border-right: 0;
+      }
+      .mobile-cat-ctrl-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 8px;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--navy);
+        -webkit-tap-highlight-color: transparent;
+      }
+      .mobile-cat-ctrl-btn:active {
+        background: #f9fafb;
+      }
+      .mobile-cat-ctrl-btn svg {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+
+      .mm-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 90;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+      .mm-modal-overlay.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+      body.mm-modal-open {
+        overflow: hidden;
+        touch-action: none;
+      }
+
+      .mm-modal-bottom {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 95;
+        max-height: min(88vh, 640px);
+        background: #fff;
+        border-radius: 12px 12px 0 0;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.18);
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+        display: flex;
+        flex-direction: column;
+      }
+      .mm-modal-bottom.is-open {
+        transform: translateY(0);
+      }
+      .mm-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        font-weight: 800;
+        font-size: 16px;
+        color: var(--navy);
+        flex-shrink: 0;
+      }
+      .mm-modal-close {
+        width: 40px;
+        height: 40px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        color: var(--navy);
+        border-radius: var(--radius);
+      }
+      .mm-modal-body {
+        overflow-y: auto;
+        padding: 8px 16px 24px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .mm-sort-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .mm-sort-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 12px;
+        border-radius: var(--radius);
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid transparent;
+        transition: background 0.15s;
+      }
+      .mm-sort-item:active {
+        background: #f3f4f6;
+      }
+      .mm-sort-item.is-selected {
+        background: #f0f9ff;
+        border-color: rgba(0, 160, 227, 0.35);
+      }
+      .mm-radio-ui {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid #cbd5e1;
+        flex-shrink: 0;
+        margin-top: 2px;
+        position: relative;
+      }
+      .mm-sort-item.is-selected .mm-radio-ui {
+        border-color: var(--info);
+        background: var(--info);
+        box-shadow: inset 0 0 0 3px #fff;
+      }
+      .mm-sort-label {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--text);
+      }
+
+      .mm-modal-filters {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(100%, 400px);
+        max-width: 100vw;
+        z-index: 95;
+        background: #fff;
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+        display: flex;
+        flex-direction: column;
+      }
+      .mm-modal-filters.is-open {
+        transform: translateX(0);
+      }
+      .mm-modal-filters .mm-modal-body {
+        flex: 1;
+        padding: 0 0 24px;
+      }
+
+      .mm-accordion {
+        border-bottom: 1px solid var(--line);
+      }
+      .mm-acc-trigger {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        border: 0;
+        background: #fff;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--navy);
+        cursor: pointer;
+        text-align: left;
+      }
+      .mm-acc-trigger .mm-acc-icon {
+        width: 22px;
+        height: 22px;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+      }
+      .mm-acc-panel {
+        display: none;
+        padding: 0 16px 16px;
+      }
+      .mm-accordion.is-open .mm-acc-panel {
+        display: block;
+      }
+      .mm-accordion.is-open .mm-acc-plus {
+        display: none !important;
+      }
+      .mm-accordion.is-open .mm-acc-minus {
+        display: grid !important;
+      }
+      .mm-acc-minus {
+        display: none !important;
+      }
+      .mm-acc-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .mm-acc-list li {
+        margin-bottom: 10px;
+      }
+      .mm-acc-list a {
+        font-size: 13px;
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .mm-acc-list a:hover {
+        color: var(--navy);
+        text-decoration: underline;
+      }
+      .mm-filter-checkbox {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 13px;
+        cursor: pointer;
+        color: var(--text);
+      }
+      .mm-price-block .mm-price-title {
+        font-size: 14px;
+        font-weight: 800;
+        margin: 0 0 14px;
+        color: var(--navy);
+      }
+      .mm-price-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: flex-end;
+      }
+      .mm-price-field {
+        flex: 1;
+        min-width: 100px;
+      }
+      .mm-price-field label {
+        display: block;
         font-size: 12px;
         font-weight: 600;
+        margin-bottom: 6px;
       }
-      .variant.active { border-color: #111; background: #f9fafb; }
-      .cta {
-        margin-top: 0;
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        background: var(--brand);
-        color: #fff;
-        padding: 14px;
-        border-radius: 12px;
-        font-weight: 800;
-        font-size: 14px;
-        border: 0;
-        cursor: pointer;
-      }
-      .buy-row {
-        margin-top: 12px;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-      .cep-box {
-        grid-column: 1 / -1;
+      .mm-price-field input {
+        width: 100%;
+        padding: 10px;
         border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 8px;
-        background: #fff;
-      }
-      .cep-line {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 8px;
-      }
-      .cep-input {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 10px 12px;
+        border-radius: var(--radius);
+        font-family: inherit;
         font-size: 14px;
       }
-      .cep-btn {
-        border: 0;
-        border-radius: 8px;
-        background: #166534;
-        color: #fff;
-        padding: 10px 12px;
+      .mm-btn-apply-price {
+        padding: 10px 16px;
+        border: 1px solid var(--line);
+        background: #f3f4f6;
+        border-radius: var(--radius);
         font-weight: 700;
+        font-family: inherit;
+        font-size: 13px;
+        cursor: pointer;
+        margin-top: 14px;
+        width: 100%;
+      }
+      .mm-btn-apply-price:not(:disabled):hover {
+        background: #e5e7eb;
+      }
+      .mm-btn-apply-price:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .category-main {
+        width: min(100% - 2 * var(--gutter), var(--max));
+        margin: 0 auto;
+        padding: 20px 0 48px;
+        display: grid;
+        gap: 24px;
+      }
+      @media (min-width: 768px) {
+        .category-main {
+          grid-template-columns: 220px 1fr;
+          align-items: start;
+          padding-top: 28px;
+        }
+      }
+
+      .sidebar h1 {
+        margin: 0 0 8px;
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--navy);
+      }
+      .breadcrumbs {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 20px;
+      }
+      .breadcrumbs a { text-decoration: underline; }
+      .breadcrumbs .sep { margin: 0 6px; opacity: 0.5; }
+
+      .sort-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .sort-row label {
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .sort-row select {
+        font-family: inherit;
+        padding: 8px 32px 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
         font-size: 13px;
         cursor: pointer;
       }
-      .cep-result {
-        margin-top: 8px;
-        font-size: 13px;
-        color: #065f46;
-        font-weight: 600;
-        min-height: 18px;
+
+      .filter-block {
+        margin-bottom: 20px;
       }
-      .cep-loading {
+      .filter-block h2 {
+        margin: 0 0 10px;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .filter-block ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .filter-block li { margin-bottom: 8px; }
+      .filter-block a {
+        font-size: 13px;
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .filter-block a:hover { color: var(--navy); text-decoration: underline; }
+
+      .price-filter {
+        display: grid;
+        gap: 8px;
+      }
+      .price-filter label { font-size: 12px; font-weight: 600; }
+      .price-filter input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        font-family: inherit;
+      }
+      .price-filter button {
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        background: #f3f4f6;
+        border-radius: var(--radius);
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 12px;
+      }
+      .checkbox-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 767.98px) {
+        .sidebar-controls-desktop {
+          position: absolute !important;
+          width: 1px !important;
+          height: 1px !important;
+          padding: 0 !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          white-space: nowrap !important;
+          border: 0 !important;
+          clip-path: inset(50%) !important;
+        }
+      }
+      .filter-block .cat-filter-link.is-active,
+      .mm-acc-list .cat-filter-link.is-active {
+        color: var(--navy) !important;
+        font-weight: 800;
+        text-decoration: underline;
+      }
+      .grid-empty {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 32px 16px;
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .products-shell {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 1px 3px rgba(21, 21, 65, 0.06);
+      }
+      @media (min-width: 768px) {
+        .products-shell {
+          padding: 24px 20px;
+        }
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        align-items: stretch;
+      }
+      @media (min-width: 768px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 22px;
+        }
+      }
+      @media (min-width: 960px) {
+        .product-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .product-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        height: 100%;
+        min-height: 0;
+      }
+      .p-rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        min-height: 28px;
+      }
+      .p-stars-wrap {
+        position: relative;
+        display: inline-block;
+        font-size: 15px;
+        line-height: 1;
+        letter-spacing: 1px;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      .p-stars-bg,
+      .p-stars-fill {
+        display: block;
+        white-space: nowrap;
+      }
+      .p-stars-bg {
+        color: #e8e8e8;
+      }
+      .p-stars-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        color: #f5c518;
+        pointer-events: none;
+      }
+      .p-reviews {
+        font-size: 14px;
+        font-weight: 600;
+        color: #c45d2c;
+      }
+      .product-card .p-name {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.35;
+        margin: 0 0 12px;
+        min-height: calc(1.35em * 3);
+        max-height: calc(1.35em * 3);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+        color: var(--text);
+        flex-shrink: 0;
+      }
+      @media (min-width: 768px) {
+        .product-card .p-name {
+          font-size: 16px;
+          min-height: calc(1.35em * 3);
+          max-height: calc(1.35em * 3);
+        }
+      }
+      .img-wrap {
+        position: relative;
+        padding-bottom: 100%;
+        background: #f9fafb;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        flex-shrink: 0;
+        width: 100%;
+      }
+      .img-wrap a {
+        position: absolute;
+        inset: 0;
+        display: block;
+      }
+      .img-wrap img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: opacity 0.2s;
+      }
+      .img-wrap img.secondary {
+        opacity: 0;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .product-card:hover .img-wrap img.primary { opacity: 0; }
+        .product-card:hover .img-wrap img.secondary { opacity: 1; }
+      }
+      .labels {
+        position: absolute;
+        top: 12px;
+        right: 8px;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: flex-end;
+        pointer-events: none;
+      }
+      .label-off {
+        background: #fcd34d;
+        color: #e6214e;
+        font-size: 11px;
+        font-weight: 800;
+        padding: 6px 12px;
+        border-radius: 2px;
+        transform: rotate(12deg);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        line-height: 1.2;
+      }
+
+      .p-info {
+        margin-top: auto;
+        padding-top: 14px;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        color: inherit;
+        flex-shrink: 0;
+      }
+      .p-prices {
+        margin-bottom: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 2px;
+        min-height: 4.2em;
+      }
+      .p-compare {
+        text-decoration: line-through;
+        color: #1a1a1a;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .p-price {
+        font-size: 20px;
+        font-weight: 800;
+        color: #0077c8;
+      }
+      .p-install {
+        font-size: 14px;
+        color: #1a1a1a;
+        font-weight: 400;
+        margin-bottom: 14px;
+      }
+      .btn-quero {
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+        display: block;
+        padding: 14px 18px;
+        border: 0;
+        border-radius: 10px;
+        background: #00a0e3;
+        color: #fff;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 800;
+        cursor: pointer;
+        letter-spacing: 0.02em;
+      }
+      .btn-quero:hover { filter: brightness(1.05); }
+      .btn-quero:disabled { opacity: 0.6; cursor: not-allowed; }
+
+      .newsletter-strip {
+        background: #00a0e3;
+        color: #fff;
+        padding: 40px var(--gutter);
+        margin-top: 32px;
+      }
+      .newsletter-strip .inner {
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        display: grid;
+        gap: 20px;
+      }
+      @media (min-width: 768px) {
+        .newsletter-strip .inner {
+          grid-template-columns: 1fr 1.2fr;
+          align-items: center;
+        }
+      }
+      .newsletter-strip h2 {
+        margin: 0;
+        font-size: clamp(22px, 4vw, 34px);
+        font-weight: 800;
+      }
+      .newsletter-strip p {
+        margin: 8px 0 0;
+        font-size: 14px;
+        opacity: 0.95;
+      }
+      .news-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .news-form input {
+        flex: 1;
+        min-width: 140px;
+        padding: 12px;
+        border: 0;
+        border-radius: var(--radius);
+        font-family: inherit;
+      }
+      .news-form button {
+        padding: 12px 20px;
+        border: 0;
+        background: var(--navy);
+        color: #fff;
+        font-weight: 800;
+        border-radius: var(--radius);
+        cursor: pointer;
+        font-family: inherit;
+      }
+
+      .site-footer {
+        background: #fff;
+        border-top: 1px solid var(--line);
+        padding: 40px var(--gutter) 28px;
+        font-size: 13px;
+      }
+      .footer-grid {
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        display: grid;
+        gap: 32px;
+      }
+      @media (min-width: 768px) {
+        .footer-grid--3 {
+          grid-template-columns: 1fr 1fr 1.15fr;
+          gap: 28px 40px;
+          align-items: start;
+        }
+      }
+      .footer-block {
+        min-width: 0;
+      }
+      .footer-block--stack {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+      .footer-title {
+        margin: 0 0 14px;
+        font-size: 13px;
+        font-weight: 800;
+        color: #00a0e3;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .footer-subtitle {
+        margin: 0 0 12px;
+        font-size: 13px;
+        font-weight: 800;
+        color: #00a0e3;
+        letter-spacing: 0.02em;
+      }
+      .footer-subtitle--lower {
+        text-transform: lowercase;
+        font-weight: 700;
+      }
+      .footer-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .footer-list li {
+        margin-bottom: 10px;
+      }
+      .footer-list a,
+      .footer-mail {
+        color: #374151;
+        text-decoration: none;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .footer-list a:hover {
+        text-decoration: underline;
+        color: var(--navy);
+      }
+      .footer-mail {
+        word-break: break-all;
+      }
+      .footer-mail:hover {
+        text-decoration: underline;
+        color: #00a0e3;
+      }
+      .pay-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .pay-brand-img {
+        height: 28px;
+        width: auto;
+        max-width: 46px;
+        object-fit: contain;
+        vertical-align: middle;
+      }
+      .pay-brand-img--itau {
+        max-width: 36px;
+      }
+      .pay-brand-img--pix {
+        height: 26px;
+        max-width: 72px;
+      }
+      .pay-brand-img--boleto {
+        height: 26px;
+        max-width: 32px;
+        opacity: 0.85;
+      }
+      .sec-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .sec-badge {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        color: #334155;
-        font-weight: 600;
-      }
-      .spinner {
-        width: 14px;
-        height: 14px;
-        border: 2px solid #cbd5e1;
-        border-top-color: #166534;
-        border-radius: 999px;
-        animation: spin .9s linear infinite;
-      }
-      @keyframes spin {
-        to { transform: rotate(360deg); }
-      }
-      .pay {
-        margin-top: 10px;
-        display: grid;
-        gap: 4px;
-        font-size: 12px;
-        color: #6b7280;
-      }
-      .section { padding: 10px 0; }
-      .title {
-        margin: 0 0 10px;
-        font-size: 22px;
-        letter-spacing: -0.02em;
-      }
-      .title-center { text-align: center; }
-      .benefits {
-        display: grid;
-        gap: 10px;
-      }
-      .benefit {
-        border: 1px solid var(--line);
-        background: #fff;
-        border-radius: 12px;
-        padding: 12px;
-      }
-      .benefit h3 { margin: 0 0 6px; font-size: 16px; }
-      .benefit p { margin: 0; color: #4b5563; font-size: 14px; line-height: 1.5; }
-      .gif-grid {
-        display: grid;
-        gap: 10px;
-      }
-      .gif-item {
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        overflow: hidden;
-        background: #fff;
-      }
-      .gif-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-      .gif-item .cap { padding: 10px; font-size: 13px; color: #374151; }
-      .showcase-video {
-        width: 100%;
-        border-radius: 12px;
-        border: 1px solid var(--line);
-        background: #000;
-        margin-bottom: 10px;
-      }
-      .comparison {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        background: #fff;
-        border-radius: 14px;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
-      }
-      .comparison th,
-      .comparison td {
-        border-bottom: 1px solid var(--line);
-        padding: 12px 14px;
-        text-align: left;
-        font-size: 14px;
-      }
-      .comparison th {
-        background: #f3f4f6;
-        font-weight: 700;
-        color: #111827;
-      }
-      .comparison tbody tr:nth-child(even) td {
-        background: #fafafa;
-      }
-      .comparison th:nth-child(2),
-      .comparison th:nth-child(3),
-      .comparison td:nth-child(2),
-      .comparison td:nth-child(3) {
-        text-align: center;
-        width: 22%;
-      }
-      .comparison td:first-child {
-        font-weight: 600;
-        color: #1f2937;
-      }
-      .table-check {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 22px;
-        height: 22px;
-        border-radius: 999px;
-        background: #16a34a;
-        color: #fff;
-        font-size: 12px;
-        font-weight: 800;
-      }
-      .table-x {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 22px;
-        height: 22px;
-        border-radius: 999px;
-        color: #fff;
-        background: #ef4444;
-        font-size: 12px;
-        font-weight: 800;
-      }
-      .review-wrap {
-        display: grid;
-        gap: 10px;
-      }
-      .review {
-        padding: 12px;
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-      }
-      .review-head {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .review-avatar {
-        width: 34px;
-        height: 34px;
-        border-radius: 999px;
-        object-fit: cover;
-        border: 1px solid var(--line);
-      }
-      .review-photo {
-        width: 100%;
-        border-radius: 10px;
-        border: 1px solid var(--line);
-        margin: 8px 0 4px;
-      }
-      .review p { margin: 6px 0 0; font-size: 14px; color: #374151; line-height: 1.5; }
-      .review strong { font-size: 13px; }
-      .review-stars { color: #f59e0b; letter-spacing: 1px; }
-      .faq {
-        border: 1px solid var(--line);
-        background: #fff;
-        border-radius: 12px;
         padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #4b5563;
+        background: #fafafa;
+        max-width: 160px;
+        line-height: 1.3;
       }
-      details { border-bottom: 1px solid var(--line); padding: 10px 0; }
-      details:last-child { border: 0; }
-      summary { font-size: 14px; font-weight: 600; cursor: pointer; }
-      details p { margin: 8px 0 0; color: #4b5563; font-size: 14px; line-height: 1.5; }
-      .guarantee {
-        border: 1px dashed #86efac;
-        background: #f0fdf4;
-        border-radius: 12px;
-        padding: 12px;
-        color: #14532d;
-        font-size: 14px;
+      .sec-badge svg {
+        flex-shrink: 0;
+        color: #34a853;
       }
-      .final {
-        margin: 12px 0 84px;
-        background: #111827;
-        color: #fff;
-        border-radius: 14px;
-        padding: 16px;
+      .footer-bottom {
         text-align: center;
+        padding: 20px var(--gutter);
+        font-size: 12px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
       }
-      .final h3 { margin: 0 0 8px; font-size: 24px; }
-      .final p { margin: 0 0 12px; color: #cbd5e1; font-size: 14px; line-height: 1.5; }
-      .timer { font-size: 13px; color: #fca5a5; font-weight: 700; margin-top: 8px; }
-      .sticky {
-        position: fixed;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        z-index: 30;
-        background: #166534;
-        border: 1px solid #14532d;
-        border-radius: 12px;
-        padding: 8px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-      }
-      .sticky strong {
-        font-size: 14px;
-        color: #fff;
-      }
-      .sticky a {
-        text-decoration: none;
-        background: #052e16;
-        color: #fff;
-        border-radius: 8px;
-        padding: 10px 12px;
-        font-size: 13px;
-        font-weight: 700;
-        white-space: nowrap;
-      }
+      .footer-bottom a { color: var(--info); }
+
+      /* Carrinho (mesmo padrão do index) */
       .cart-overlay {
         position: fixed;
         inset: 0;
         background: rgba(17, 24, 39, 0.45);
         opacity: 0;
         pointer-events: none;
-        transition: opacity .2s ease;
-        z-index: 40;
+        transition: opacity 0.2s ease;
+        z-index: 100;
       }
       .cart-overlay.open {
         opacity: 1;
@@ -423,13 +1043,13 @@
         position: fixed;
         top: 0;
         right: 0;
-        width: min(92vw, 380px);
+        width: min(92vw, 400px);
         height: 100vh;
         background: #fff;
         border-left: 1px solid var(--line);
         transform: translateX(100%);
-        transition: transform .25s ease;
-        z-index: 41;
+        transition: transform 0.25s ease;
+        z-index: 101;
         display: grid;
         grid-template-rows: auto 1fr auto;
       }
@@ -440,17 +1060,27 @@
         justify-content: space-between;
         padding: 14px;
         border-bottom: 1px solid var(--line);
+        font-weight: 800;
+        color: var(--navy);
       }
-      .cart-head h3 { margin: 0; font-size: 18px; }
       .cart-close {
         border: 1px solid var(--line);
         background: #fff;
         border-radius: 8px;
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        cursor: pointer;
       }
-      .cart-body { padding: 14px; }
+      .cart-body {
+        padding: 14px;
+        overflow-y: auto;
+      }
+      .cart-empty {
+        color: var(--muted);
+        text-align: center;
+        padding: 24px 8px;
+      }
       .cart-item {
         border: 1px solid var(--line);
         border-radius: 12px;
@@ -458,589 +1088,1133 @@
         display: grid;
         grid-template-columns: 72px 1fr;
         gap: 10px;
+        margin-bottom: 10px;
       }
       .cart-item img {
         width: 72px;
         height: 72px;
         object-fit: cover;
         border-radius: 8px;
-        border: 1px solid var(--line);
       }
-      .cart-item p { margin: 4px 0; font-size: 13px; color: #4b5563; }
-      .cart-price { font-size: 14px; font-weight: 700; color: #111; }
+      .cart-item strong { font-size: 13px; }
+      .cart-item .cart-price { font-weight: 800; margin-top: 6px; }
       .cart-footer {
         border-top: 1px solid var(--line);
         padding: 14px;
-        display: grid;
-        gap: 10px;
       }
       .cart-line {
         display: flex;
         justify-content: space-between;
-        font-size: 14px;
+        margin-bottom: 12px;
+        font-size: 15px;
       }
       .checkout-btn {
-        text-decoration: none;
+        display: block;
+        width: 100%;
         text-align: center;
-        background: #15803d;
+        text-decoration: none;
+        background: var(--btn-bg);
         color: #fff;
-        border-radius: 10px;
-        padding: 12px;
-        font-size: 14px;
+        border: 0;
+        border-radius: var(--radius);
+        padding: 14px;
+        font: inherit;
         font-weight: 800;
+        cursor: pointer;
       }
-      .cart-note { font-size: 12px; color: #6b7280; text-align: center; }
-      .site-footer {
-        margin: 10px 0 0;
-        /* Mesma cor do rodapé: evita faixa clara entre copyright e barra fixa (padding no body mostrava --bg) */
-        padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
-        background: #166534;
-        color: #fff;
-        border-top: 1px solid #14532d;
+      .add-loading-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
       }
-      .footer-grid {
-        display: grid;
-        gap: 18px;
-        padding: 22px 0 16px;
-      }
-      .footer-col h4 {
-        margin: 0 0 8px;
-        color: #fff;
-        font-size: 14px;
-      }
-      .footer-col p,
-      .footer-col a {
-        margin: 0 0 6px;
-        color: #fff;
-        text-decoration: none;
-        font-size: 13px;
-        line-height: 1.5;
-      }
-      .footer-col a:hover { color: #e5e7eb; }
-      .footer-trust {
+      .add-loading-overlay.is-visible {
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 14px 22px;
-        margin: 10px 0 0;
       }
-      .footer-trust-item {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        font-weight: 600;
-        line-height: 1.35;
-        color: rgba(255, 255, 255, 0.96);
+      .add-loading-spinner {
+        width: 52px;
+        height: 52px;
+        border: 4px solid rgba(0, 160, 227, 0.22);
+        border-top-color: #00a0e3;
+        border-radius: 50%;
+        animation: add-loading-spin 0.65s linear infinite;
       }
-      .footer-icon {
-        flex-shrink: 0;
-        width: 20px;
-        height: 20px;
-        color: rgba(255, 255, 255, 0.92);
+      @keyframes add-loading-spin {
+        to {
+          transform: rotate(360deg);
+        }
       }
-      .footer-bottom {
-        margin: 32px 0 0;
-        background: #166534;
-        border-top: 1px solid #14532d;
-        padding: 18px 16px 16px;
-        font-size: 12px;
+      body.add-loading-open {
+        overflow: hidden;
+        touch-action: none;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(120%);
+        background: var(--navy);
         color: #fff;
-        text-align: center;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 99;
+        transition: transform 0.25s ease;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       }
-      @media (min-width: 992px) {
-        .hero { padding-top: 24px; }
-        .grid { grid-template-columns: 1.03fr .97fr; gap: 18px; }
-        .buy-row { grid-template-columns: 1fr; align-items: start; }
-        .benefits { grid-template-columns: repeat(3,1fr); }
-        .gif-grid { grid-template-columns: repeat(3,1fr); }
-        .review-wrap { grid-template-columns: repeat(3,1fr); }
-        .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
-        .title { font-size: 30px; }
-        h1 { font-size: 42px; }
-      }
+      .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
   </head>
   <body>
-    <div class="bar" id="topBarText">FRETE GRÁTIS HOJE DIA --/--/----</div>
+    <div class="bar" id="topBarText"></div>
 
-    <header class="hero">
-      <div class="container grid">
-        <section class="card gallery">
-          <h1>
-            Cadeira KampSmart com Cobertura Integrada
-            <span class="verified-badge" aria-label="Produto verificado" title="Produto verificado">✓</span>
-          </h1>
-          <p class="seller-line">Vendido e entregue por SunWild</p>
-          <div class="rating"><span class="stars">★★★★★</span> 4.9/5 (438 avaliacoes)</div>
-          <p class="subtitle">
-
-          </p>
-          <img id="mainImage" class="main-image" src="./assets/images/product/81L-DY4xjnL._AC_SX679_.jpg" alt="Cadeira KampSmart" />
-          <div class="thumbs">
-            <button class="thumb is-active" data-src="./assets/images/product/81L-DY4xjnL._AC_SX679_.jpg"><img src="./assets/images/product/81L-DY4xjnL._AC_SX679_.jpg" alt="Foto principal" /></button>
-            <button class="thumb" data-src="./assets/images/product/096bd3f0-e0ff-4a6c-b842-3ab8f2702e07.png"><img src="./assets/images/product/096bd3f0-e0ff-4a6c-b842-3ab8f2702e07.png" alt="Foto 2" /></button>
-            <button class="thumb" data-src="./assets/images/product/21ddcbb8-cfb6-4512-9c66-b533b003a0df.png"><img src="./assets/images/product/21ddcbb8-cfb6-4512-9c66-b533b003a0df.png" alt="Foto 3" /></button>
-            <button class="thumb" data-src="./assets/images/product/Whisk_07d5937d51ffb9db6d3417516d5c190ddr.png"><img src="./assets/images/product/Whisk_07d5937d51ffb9db6d3417516d5c190ddr.png" alt="Foto 4" /></button>
-            <button class="thumb" data-src="./assets/images/product/Whisk_b24e63d52bd6ad3a14746ed4cc135efcdr.png"><img src="./assets/images/product/Whisk_b24e63d52bd6ad3a14746ed4cc135efcdr.png" alt="Foto 5" /></button>
-          </div>
-        </section>
-
-        <section class="card info" id="comprar">
-          <div class="pricing">
-            <span class="old" id="oldPrice">R$ 376,00</span>
-            <span class="new" id="newPrice">R$ 179,90</span>
-            <span class="off" id="offBadge">52% OFF</span>
-          </div>
-          <div class="variants">
-            <p>Escolha seu kit</p>
-            <div class="variant-grid">
-              <button class="variant active" data-units="1">1 UN</button>
-              <button class="variant" data-units="2">2 UN (20% OFF)</button>
-            </div>
-          </div>
-
-          <div class="buy-row">
-            <button class="cta" id="addToCart" type="button">ADICIONAR AO CARRINHO</button>
-            <div class="cep-box">
-              <div class="cep-line">
-                <input class="cep-input" id="cepInput" type="text" inputmode="numeric" maxlength="9" placeholder="Digite seu CEP" />
-                <button class="cep-btn" id="cepBtn" type="button">Calcular</button>
-              </div>
-              <div class="cep-result" id="cepResult"></div>
-            </div>
-          </div>
-
-        </section>
+    <header class="site-header">
+      <div class="header-inner">
+        <button type="button" class="icon-btn" aria-label="Menu" id="btnMenu">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+        </button>
+        <a class="logo-block" href="loja.html">
+          <img
+            src="assets/images/logo-mais-mu.png"
+            alt="+Mu — Mais Mu"
+            width="180"
+            height="52"
+            decoding="async"
+          />
+        </a>
+        <div class="search-wrap">
+          <form class="search-form" action="#" onsubmit="return false;">
+            <input type="search" placeholder="Buscar Produto..." aria-label="Buscar" />
+            <button type="submit">Buscar</button>
+          </form>
+        </div>
+        <div class="header-tools">
+          <button type="button" class="icon-btn" aria-label="Conta">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5.33 0-8 2.67-8 8v1h16v-1c0-5.33-2.67-8-8-8z"/></svg>
+          </button>
+          <button type="button" class="icon-btn cart-badge" id="openCart" data-count="0" aria-label="Carrinho">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            <span class="badge-count" id="cartCount">0</span>
+          </button>
+        </div>
       </div>
+      <nav class="nav-desktop" aria-label="Categorias">
+        <div class="nav-scroll">
+          <a href="#">LANÇAMENTOS</a>
+          <a href="#">Whey</a>
+          <a href="#">Creatinas</a>
+          <a href="loja.html" class="is-active">Pré-Treinos</a>
+          <a href="#">Snacks</a>
+          <a href="#">Combos</a>
+        </div>
+      </nav>
     </header>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="title title-center">Comparativo rapido</h2>
-        <table class="comparison">
-          <thead>
-            <tr>
-              <th>Recurso</th>
-              <th>KampSmart</th>
-              <th>Cadeira comum</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cobertura integrada</td>
-              <td><span class="table-check" aria-label="Possui">✓</span></td>
-              <td><span class="table-x" aria-label="Nao possui">✕</span></td>
-            </tr>
-            <tr>
-              <td>Protecao UV50+</td>
-              <td><span class="table-check" aria-label="Possui">✓</span></td>
-              <td><span class="table-x" aria-label="Nao possui">✕</span></td>
-            </tr>
-            <tr>
-              <td>Bolso termico e porta-copos</td>
-              <td><span class="table-check" aria-label="Possui">✓</span></td>
-              <td><span class="table-x" aria-label="Nao possui">✕</span></td>
-            </tr>
-            <tr>
-              <td>Suporte de carga</td>
-              <td><span class="table-check" aria-label="Possui">✓</span></td>
-              <td><span class="table-x" aria-label="Nao possui">✕</span></td>
-            </tr>
-          </tbody>
-        </table>
+    <section class="cat-banner">
+      <img
+        src="https://acdn-us.mitiendanube.com/stores/005/697/238/categories/banners-de-categoriapre-treino-cc185a86dac706a3ba17509672924080-1024-1024.png"
+        alt="Banner da categoria Pré-treinos"
+        width="1920"
+        height="400"
+        loading="eager"
+      />
+    </section>
+
+    <section class="mobile-category-controls" aria-label="Ordenar e filtrar na vitrine">
+      <div class="category-controls-container">
+        <div class="category-controls-row">
+          <div class="category-control-item">
+            <a href="#" class="mobile-cat-ctrl-btn" id="openSort" role="button">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z" />
+              </svg>
+              Ordenar
+            </a>
+          </div>
+          <div class="category-control-item">
+            <a href="#" class="mobile-cat-ctrl-btn" id="openFilter" role="button">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+                />
+              </svg>
+              Filtrar
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <video class="showcase-video" autoplay muted loop playsinline controls>
-          <source src="./assets/video/0326 (1).mp4" type="video/mp4" />
-          Seu navegador nao suporta video HTML5.
-        </video>
+    <div class="mm-modal-overlay" id="mmOverlaySort" aria-hidden="true"></div>
+    <div
+      class="mm-modal-bottom"
+      id="mmModalSort"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mmModalSortTitle"
+      aria-hidden="true"
+    >
+      <div class="mm-modal-header">
+        <span id="mmModalSortTitle">Ordenar por</span>
+        <button type="button" class="mm-modal-close" id="mmCloseSort" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
       </div>
-    </section>
+      <div class="mm-modal-body">
+        <div class="mm-sort-list" id="mmSortList">
+          <button type="button" class="mm-sort-item" data-mm-sort="price-asc">
+            <span class="mm-radio-ui" aria-hidden="true"></span>
+            <span class="mm-sort-label">Preço: Menor ao Maior</span>
+          </button>
+          <button type="button" class="mm-sort-item" data-mm-sort="price-desc">
+            <span class="mm-radio-ui" aria-hidden="true"></span>
+            <span class="mm-sort-label">Preço: Maior ao Menor</span>
+          </button>
+          <button type="button" class="mm-sort-item" data-mm-sort="name-asc">
+            <span class="mm-radio-ui" aria-hidden="true"></span>
+            <span class="mm-sort-label">A - Z</span>
+          </button>
+          <button type="button" class="mm-sort-item" data-mm-sort="name-desc">
+            <span class="mm-radio-ui" aria-hidden="true"></span>
+            <span class="mm-sort-label">Z - A</span>
+          </button>
+          <button type="button" class="mm-sort-item" data-mm-sort="created-desc">
+            <span class="mm-radio-ui" aria-hidden="true"></span>
+            <span class="mm-sort-label">Mais Novo ao mais Antigo</span>
+          </button>
+          <button type="button" class="mm-sort-item" data-mm-sort="created-asc">
+            <span class="mm-radio-ui" aria-hidden="true"></span>
+            <span class="mm-sort-label">Mais Antigo ao mais Novo</span>
+          </button>
+          <button type="button" class="mm-sort-item" data-mm-sort="best-selling">
+            <span class="mm-radio-ui" aria-hidden="true"></span>
+            <span class="mm-sort-label">Mais Vendidos</span>
+          </button>
+          <button type="button" class="mm-sort-item" data-mm-sort="featured">
+            <span class="mm-radio-ui" aria-hidden="true"></span>
+            <span class="mm-sort-label">Destaque</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="title title-center">Avaliações</h2>
-        <div class="review-wrap">
-          <article class="review">
-            <div class="review-head">
-              <img class="review-avatar" src="./assets/images/reviews/images (1).jpg" alt="Foto de perfil da cliente Ana C." />
-              <strong>Ana C. (SP) <span class="review-stars">★★★★★</span></strong>
+    <div class="mm-modal-overlay" id="mmOverlayFilters" aria-hidden="true"></div>
+    <div
+      class="mm-modal-filters"
+      id="mmModalFilters"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mmModalFiltersTitle"
+      aria-hidden="true"
+    >
+      <div class="mm-modal-header">
+        <span id="mmModalFiltersTitle">Filtrar</span>
+        <button type="button" class="mm-modal-close" id="mmCloseFilters" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="mm-modal-body">
+        <div class="mm-accordion">
+          <button type="button" class="mm-acc-trigger" data-mm-acc="cat" aria-expanded="false">
+            <span>Categorias</span>
+            <span class="mm-acc-icon mm-acc-plus" aria-hidden="true">+</span>
+            <span class="mm-acc-icon mm-acc-minus" aria-hidden="true">−</span>
+          </button>
+          <div class="mm-acc-panel" id="mmAccCat">
+            <ul class="mm-acc-list">
+              <li><a href="#" class="cat-filter-link" data-mm-cat="exquenta-1kg">Exquenta 1kg</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="exquenta-500g">Exquenta 500g</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="sem-cafeina">Sem cafeína 450g</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="nitrato">Nitrato 450g</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="exquenta-300g">Exquenta 300g</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="saches">Sachês</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mm-accordion">
+          <button type="button" class="mm-acc-trigger" data-mm-acc="brand" aria-expanded="false">
+            <span>Marca</span>
+            <span class="mm-acc-icon mm-acc-plus" aria-hidden="true">+</span>
+            <span class="mm-acc-icon mm-acc-minus" aria-hidden="true">−</span>
+          </button>
+          <div class="mm-acc-panel" id="mmAccBrand">
+            <label class="mm-filter-checkbox">
+              <input type="checkbox" id="brandMuModal" checked disabled />
+              <span>Mais Mu (12)</span>
+            </label>
+          </div>
+        </div>
+        <div class="mm-accordion mm-price-block">
+          <button type="button" class="mm-acc-trigger" data-mm-acc="price" aria-expanded="false">
+            <span>Preço</span>
+            <span class="mm-acc-icon mm-acc-plus" aria-hidden="true">+</span>
+            <span class="mm-acc-icon mm-acc-minus" aria-hidden="true">−</span>
+          </button>
+          <div class="mm-acc-panel" id="mmAccPrice">
+            <div class="mm-price-row">
+              <div class="mm-price-field">
+                <label for="minPm">De</label>
+                <input id="minPm" type="text" inputmode="decimal" placeholder="20,00" autocomplete="off" />
+              </div>
+              <div class="mm-price-field">
+                <label for="maxPm">Até</label>
+                <input id="maxPm" type="text" inputmode="decimal" placeholder="140,00" autocomplete="off" />
+              </div>
             </div>
-            <img class="review-photo" src="./assets/images/reviews/Whisk_dde08d11b570d659faa4cd6f6cbdfc67dr.png" alt="Foto postada por cliente satisfeita" />
-            <p>"Levei para praia e foi a melhor compra do verao. Bem mais confortavel que minhas cadeiras antigas."</p>
-          </article>
-          <article class="review">
-            <div class="review-head">
-              <img class="review-avatar" src="./assets/images/reviews/images.jpg" alt="Foto de perfil do cliente Victor L." />
-              <strong>Victor L. (RJ) <span class="review-stars">★★★★★</span></strong>
+            <button type="button" class="mm-btn-apply-price" id="mmApplyPrice">Aplicar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-main">
+      <aside class="sidebar" id="sidebar">
+        <h1>Pré-treinos</h1>
+        <div class="breadcrumbs">
+          <a href="index.html">Início</a><span class="sep">|</span><span>Pré-treinos</span>
+        </div>
+
+        <div class="sidebar-controls-desktop">
+          <div class="sort-row">
+            <label for="sortSelect">Ordenar:</label>
+            <select id="sortSelect" aria-label="Ordenar por">
+              <option value="featured">Destaque</option>
+              <option value="price-asc">Preço: Menor ao Maior</option>
+              <option value="price-desc">Preço: Maior ao Menor</option>
+              <option value="name-asc">A - Z</option>
+              <option value="name-desc">Z - A</option>
+              <option value="created-desc">Mais Novo ao mais Antigo</option>
+              <option value="created-asc">Mais Antigo ao mais Novo</option>
+              <option value="best-selling">Mais Vendidos</option>
+            </select>
+          </div>
+
+          <div class="filter-block">
+            <h2>Categorias</h2>
+            <ul>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="exquenta-1kg">Exquenta 1kg</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="exquenta-500g">Exquenta 500g</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="sem-cafeina">Sem cafeína 450g</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="nitrato">Nitrato 450g</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="exquenta-300g">Exquenta 300g</a></li>
+              <li><a href="#" class="cat-filter-link" data-mm-cat="saches">Sachês</a></li>
+            </ul>
+          </div>
+          <div class="filter-block">
+            <h2>Marca</h2>
+            <label class="checkbox-row">
+              <input type="checkbox" id="brandMu" checked disabled />
+              <span>Mais Mu (12)</span>
+            </label>
+          </div>
+          <div class="filter-block">
+            <h2>Preço</h2>
+            <div class="price-filter">
+              <div>
+                <label for="minP">De</label>
+                <input id="minP" type="text" inputmode="decimal" placeholder="20,00" autocomplete="off" />
+              </div>
+              <div>
+                <label for="maxP">Até</label>
+                <input id="maxP" type="text" inputmode="decimal" placeholder="140,00" autocomplete="off" />
+              </div>
+              <button type="button" id="applyPrice">Aplicar</button>
             </div>
-            <img class="review-photo" src="./assets/images/reviews/Whisk_8156a76de0a956b90a34a80c6ff1154cdr.png" alt="Foto postada por cliente satisfeito" />
-            <p>"Estrutura firme, nao ficou bamba e o bolso termico ajuda muito. Entrega no prazo."</p>
-          </article>
-          <article class="review">
-            <div class="review-head">
-              <img class="review-avatar" src="./assets/images/reviews/46a2c487b81c7bfecb5cbd3e57071121.jpg" alt="Foto de perfil da cliente Mariana F." />
-              <strong>Mariana F. (PR) <span class="review-stars">★★★★☆</span></strong>
-            </div>
-            <img class="review-photo" src="./assets/images/reviews/Whisk_233c92a471e3cc8bbca4db921549bb06dr.png" alt="Foto postada por cliente satisfeita" />
-            <p>"Produto muito bom, acabamento e tecido excelentes. Recomendaria para quem vai muito ao parque."</p>
-          </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </aside>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="title title-center">Por que esse produto vende tanto?</h2>
-        <div class="benefits">
-          <article class="benefit">
-            <h3>Protecao UV50+ integrada <span class="table-check" aria-label="Verificado" title="Verificado">✓</span></h3>
-            <p>
-              A cobertura cria sombra no rosto e ombros, diminuindo exposicao direta ao sol e melhorando o
-              conforto durante longos periodos.
-            </p>
-          </article>
-          <article class="benefit">
-            <h3>Conforto e estabilidade <span class="table-check" aria-label="Verificado" title="Verificado">✓</span></h3>
-            <p>
-              Estrutura reforcada, assento amplo e apoio firme para uso prolongado em praia, camping,
-              pescaria, jogos e parque.
-            </p>
-          </article>
-          <article class="benefit">
-            <h3>Cooler embutido de facil acesso <span class="table-check" aria-label="Verificado" title="Verificado">✓</span></h3>
-            <p>
-              O compartimento termico lateral funciona como cooler embutido para levar latas e garrafas geladas
-              sem precisar de bolsa termica separada.
-            </p>
-          </article>
-        </div>
+      <div class="products-shell">
+        <div class="product-grid" id="productGrid"></div>
       </div>
-    </section>
+    </div>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="title">Perguntas frequentes</h2>
-        <div class="faq">
-          <details>
-            <summary>A cobertura aguenta sol forte?</summary>
-            <p>Sim. O tecido foi desenvolvido com protecao UV50+ para reduzir incidencia solar direta durante o uso.</p>
-          </details>
-          <details>
-            <summary>Ela e facil de transportar?</summary>
-            <p>Sim. O fechamento e compacto, com formato pensado para caber no porta-malas sem ocupar espaco excessivo.</p>
-          </details>
-          <details>
-            <summary>Qual peso maximo suportado?</summary>
-            <p>Suporta ate 136kg com estrutura reforcada em aco e tecido de alta resistencia.</p>
-          </details>
-          <details>
-            <summary>Como funciona a garantia?</summary>
-            <p>Voce tem 30 dias para avaliar seu pedido. Se houver defeito de fabricacao, realizamos a troca.</p>
-          </details>
+    <section class="newsletter-strip">
+      <div class="inner">
+        <div>
+          <h2>Assine <span style="color: #151541">nossa newsletter</span></h2>
+          <p>e receba novidades, promoções e 10% OFF na primeira compra (exemplo visual).</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="guarantee">
-          <strong>Garantia KampSmart 30 dias:</strong> comprou, testou e nao se adaptou? Nosso suporte orienta a melhor
-          solucao com total transparencia.
-        </div>
+        <form class="news-form" onsubmit="return false;">
+          <input type="text" placeholder="Seu nome" aria-label="Nome" />
+          <input type="email" placeholder="Seu e-mail" aria-label="E-mail" />
+          <button type="button">Quero Assinar</button>
+        </form>
       </div>
     </section>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-col">
-          <h4>KampSmart Brasil</h4>
-          <p>Cadeira premium para praia, camping, pescaria e momentos ao ar livre com conforto e praticidade.</p>
-          <div class="footer-trust">
-            <div class="footer-trust-item">
-              <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-              <span>Site seguro</span>
+      <div class="footer-grid footer-grid--3">
+        <div class="footer-block">
+          <h3 class="footer-title">Suporte</h3>
+          <ul class="footer-list">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Políticas de Privacidade</a></li>
+            <li><a href="#">Onde encontrar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-block footer-block--stack">
+          <div>
+            <h3 class="footer-title">Institucional</h3>
+            <ul class="footer-list">
+              <li><a href="#">Minha conta</a></li>
+              <li><a href="#">Quem somos</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-subtitle">Atendimento</h4>
+            <a class="footer-mail" href="mailto:fala.ai@maismu.com.br">fala.ai@maismu.com.br</a>
+          </div>
+        </div>
+
+        <div class="footer-block footer-block--stack">
+          <div>
+            <h4 class="footer-subtitle">Meios de pagamento</h4>
+            <div class="pay-icons" aria-label="Formas de pagamento aceitas">
+              <!-- Bandeiras: payment-icons (jsDelivr). Pix / Itaú: Wikimedia Commons. Boleto: ícone código de barras (Bootstrap Icons). -->
+              <img
+                class="pay-brand-img"
+                src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/visa.svg"
+                alt="Visa"
+                width="48"
+                height="28"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="pay-brand-img"
+                src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/mastercard.svg"
+                alt="Mastercard"
+                width="48"
+                height="28"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="pay-brand-img"
+                src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/amex.svg"
+                alt="American Express"
+                width="48"
+                height="28"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="pay-brand-img"
+                src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/elo.svg"
+                alt="Elo"
+                width="48"
+                height="28"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="pay-brand-img"
+                src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/hipercard.svg"
+                alt="Hipercard"
+                width="48"
+                height="28"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="pay-brand-img"
+                src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/diners.svg"
+                alt="Diners Club"
+                width="48"
+                height="28"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="pay-brand-img pay-brand-img--itau"
+                src="https://upload.wikimedia.org/wikipedia/commons/1/19/Ita%C3%BA_Unibanco_logo_2023.svg"
+                alt="Itaú"
+                width="36"
+                height="28"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="pay-brand-img"
+                src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/discover.svg"
+                alt="Discover"
+                width="48"
+                height="28"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="pay-brand-img pay-brand-img--boleto"
+                src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/icons/upc-scan.svg"
+                alt="Boleto bancário"
+                width="32"
+                height="28"
+                loading="lazy"
+                decoding="async"
+                title="Boleto bancário"
+              />
+              <img
+                class="pay-brand-img pay-brand-img--pix"
+                src="https://upload.wikimedia.org/wikipedia/commons/5/50/Pix_%28Brazil%29_logo.svg"
+                alt="Pix"
+                width="72"
+                height="26"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-            <div class="footer-trust-item">
-              <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-                <path d="M15 18h2" />
-                <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
-                <circle cx="17" cy="18" r="2" />
-                <circle cx="7" cy="18" r="2" />
-              </svg>
-              <span>Envio nacional</span>
+          </div>
+          <div>
+            <h4 class="footer-subtitle footer-subtitle--lower">segurança</h4>
+            <div class="sec-badges">
+              <span class="sec-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 2l8 4v6c0 5-3.4 9.7-8 11C7.4 21.7 4 17 4 13V6l8-4z"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                </svg>
+                Site verificado — navegação segura
+              </span>
+              <span class="sec-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 2l8 4v6c0 5-3.4 9.7-8 11C7.4 21.7 4 17 4 13V6l8-4z"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                </svg>
+                Compra protegida
+              </span>
             </div>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Atendimento</h4>
-          <p>Seg a Sex - 09h as 18h</p>
-          <p>contato@kampsmartbrasil.com</p>
-          <p>(11) 99475-4284</p>
-        </div>
-        <div class="footer-col">
-          <h4>Informacoes</h4>
-          <a href="#comprar">Comprar agora</a>
-          <a href="#">Politica de trocas</a>
-          <a href="#">Politica de privacidade</a>
-          <a href="#">Termos de uso</a>
-        </div>
-        <div class="footer-col">
-          <h4>Pagamento</h4>
-          <p>Cartao de credito</p>
-          <p>Pix com desconto</p>
-          <p>Boleto bancario</p>
-        </div>
       </div>
       <div class="footer-bottom">
-        © 2026 KampSmart Brasil. Todos os direitos reservados.
+        © 2026 +Mu
       </div>
     </footer>
-
-    <div class="sticky">
-      <strong>KampSmart R$ <span id="stickyPrice">179,90</span></strong>
-      <a href="#comprar" id="stickyBuy">Comprar agora</a>
-    </div>
 
     <div class="cart-overlay" id="cartOverlay"></div>
     <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
       <div class="cart-head">
-        <h3>Seu carrinho</h3>
-        <button class="cart-close" id="cartClose" type="button" aria-label="Fechar carrinho">×</button>
+        Carrinho de compras
+        <button type="button" class="cart-close" id="cartClose" aria-label="Fechar">×</button>
       </div>
-      <div class="cart-body">
-        <article class="cart-item">
-          <img src="./assets/images/product/81L-DY4xjnL._AC_SX679_.jpg" alt="Cadeira KampSmart no carrinho" />
-          <div>
-            <strong>Cadeira KampSmart</strong>
-            <p id="cartKit">Kit: 1 UN</p>
-            <p id="cartQtd">Quantidade: 1</p>
-            <div class="cart-price" id="cartItemPrice">R$ 179,90</div>
-          </div>
-        </article>
+      <div class="cart-body" id="cartBody">
+        <p class="cart-empty" id="cartEmpty">O carrinho está vazio.</p>
       </div>
-      <div class="cart-footer">
+      <div class="cart-footer" id="cartFooter" hidden>
         <div class="cart-line">
-          <span>Subtotal</span>
-          <strong id="cartSubtotal">R$ 179,90</strong>
+          <span>Subtotal:</span>
+          <strong id="cartSubtotal">R$ 0,00</strong>
         </div>
-        <a class="checkout-btn" href="https://seguro.kampsmart.shop/pay/47e04429-5aab-4a4b-9234-326bec71687f">FINALIZAR COMPRA</a>
-        <div class="cart-note">Frete e desconto calculados no checkout.</div>
+        <button type="button" class="checkout-btn" id="checkoutBtn">
+          Finalizar pedido
+        </button>
       </div>
     </aside>
 
+    <div class="toast" id="toast" role="status"></div>
+
+    <div
+      id="addLoadingOverlay"
+      class="add-loading-overlay"
+      aria-hidden="true"
+      aria-live="polite"
+    >
+      <div class="add-loading-spinner" role="status" aria-label="Carregando"></div>
+    </div>
+
     <script>
-      const mainImage = document.getElementById("mainImage");
-      const thumbs = document.querySelectorAll(".thumb");
-      let currentThumbIndex = 0;
+      const CDN = "https://acdn-us.mitiendanube.com/stores/005/697/238/products/";
+      /**
+       * Pré-treino em pote: todos os 500g compartilham o mesmo preço promocional;
+       * todos os 300g compartilham outro (sempre menor que o de 500g).
+       * Ajuste msrp / prevSalePct / badgePct só aqui para mudar X e Y de uma vez.
+       */
+      const PRE_TREINO_500G = { msrp: 249.9, prevSalePct: 52, badgePct: 40 };
+      const PRE_TREINO_300G = { msrp: 199.9, prevSalePct: 52, badgePct: 40 };
+      /** Kit + displays em sachê: preço de venda fixo; “De” e tarja derivados do badgePct. */
+      const PRE_SACHE = { price: 48.28, badgePct: 40 };
+      /** Desconto anterior (45–60%), só para calcular o preço “de antes” antes de cortar pela metade — outros SKUs. */
+      const PREVIOUS_SALE_PCT = [52, 45, 60, 48, 55, 58, 47, 54, 51, 56, 49, 53];
+      /** % exibido na tarja (35 a 50); o “De” é recalculado para bater com preço e tarja. */
+      const BADGE_PCT_BY_INDEX = [38, 42, 35, 50, 45, 40, 48, 36, 44, 47, 49, 37];
 
-      const activateThumb = (index) => {
-        const button = thumbs[index];
-        if (!button || !mainImage) return;
-        const nextSrc = button.getAttribute("data-src");
-        if (!nextSrc) return;
-        mainImage.src = nextSrc;
-        thumbs.forEach((item) => item.classList.remove("is-active"));
-        button.classList.add("is-active");
-        currentThumbIndex = index;
-      };
+      function promoFromConfig({ msrp, prevSalePct, badgePct }, instN) {
+        const priceBeforeHalf = Math.round(msrp * (1 - prevSalePct / 100) * 100) / 100;
+        const price = Math.round(priceBeforeHalf * 0.5 * 100) / 100;
+        const compare = Math.round((price / (1 - badgePct / 100)) * 100) / 100;
+        const instPart = Math.round((price / instN) * 100) / 100;
+        return {
+          compare,
+          price,
+          off: String(badgePct),
+          inst: String(instN),
+          instVal: instPart.toFixed(2).replace(".", ","),
+        };
+      }
 
-      thumbs.forEach((button) => {
-        button.addEventListener("click", () => {
-          const clickedIndex = Array.from(thumbs).indexOf(button);
-          if (clickedIndex >= 0) activateThumb(clickedIndex);
+      function promoFromFixedPrice({ price, badgePct }, instN) {
+        const compare = Math.round((price / (1 - badgePct / 100)) * 100) / 100;
+        const instPart = Math.round((price / instN) * 100) / 100;
+        return {
+          compare,
+          price,
+          off: String(badgePct),
+          inst: String(instN),
+          instVal: instPart.toFixed(2).replace(".", ","),
+        };
+      }
+
+      function applyPromoPrices(rows) {
+        const instN = 3;
+        return rows.map((row, i) => {
+          if (row.cat === "exquenta-500g") {
+            const { msrp, ...rest } = row;
+            return { ...rest, ...promoFromConfig(PRE_TREINO_500G, instN) };
+          }
+          if (row.cat === "exquenta-300g") {
+            const { msrp, ...rest } = row;
+            return { ...rest, ...promoFromConfig(PRE_TREINO_300G, instN) };
+          }
+          if (row.cat === "saches") {
+            const { msrp, ...rest } = row;
+            return { ...rest, ...promoFromFixedPrice(PRE_SACHE, instN) };
+          }
+          const prevOff = PREVIOUS_SALE_PCT[i % PREVIOUS_SALE_PCT.length];
+          const priceBeforeHalf = Math.round(row.msrp * (1 - prevOff / 100) * 100) / 100;
+          const price = Math.round(priceBeforeHalf * 0.5 * 100) / 100;
+          const offBadge = BADGE_PCT_BY_INDEX[i % BADGE_PCT_BY_INDEX.length];
+          const compare = Math.round((price / (1 - offBadge / 100)) * 100) / 100;
+          const instPart = Math.round((price / instN) * 100) / 100;
+          const instVal = instPart.toFixed(2).replace(".", ",");
+          const { msrp, ...rest } = row;
+          return {
+            ...rest,
+            compare,
+            price,
+            off: String(offBadge),
+            inst: String(instN),
+            instVal,
+          };
         });
+      }
+
+      const products = applyPromoPrices([
+        {
+          id: "p1",
+          name: "Kit Degustação 4 Sachês Exquentas (20g)",
+          cat: "saches",
+          checkoutUrl: "https://go.ironpayapp.com.br/xbiy1",
+          img: CDN + "design-sem-nome-9412f23e458ef071fd17708153499180-640-0.webp",
+          img2: CDN + "maismu_exquenta_manga_mockup-1-b4062275c687a1296317708146039835-640-0.webp",
+        },
+        {
+          id: "p2",
+          name: "Exquenta Mais Mu Performance - Pré-Treino - Amora e Melancia - 500g",
+          cat: "exquenta-500g",
+          checkoutUrl: "https://go.ironpayapp.com.br/qkygz",
+          img: CDN + "exxxxquenta-manga-500g-1-e5e7075a20fde9c49317508910524601-640-0.webp",
+          img2: CDN + "117-3580057e23da857ed317593267683193-640-0.webp",
+        },
+        {
+          id: "p3",
+          name: "Exquenta Mais Mu Performance - Pré-Treino - Manga - 500g",
+          cat: "exquenta-500g",
+          checkoutUrl: "https://go.ironpayapp.com.br/fzuha",
+          img: CDN + "exxxxquenta-manga-500g-ebdb7f0ffe2909a8cc17508890413731-640-0.webp",
+          img2: CDN + "118-2c6eb6b513d913f8a717593264217744-640-0.webp",
+        },
+        {
+          id: "p4",
+          name: "Exquenta Mais Mu Performance - Pré-Treino - Pink Lemonade - 500g",
+          cat: "exquenta-500g",
+          checkoutUrl: "https://go.ironpayapp.com.br/uio3w",
+          img: CDN + "enta_500g_pinklemonade-390c8681be88850cdb17508815647481-640-0.webp",
+          img2: CDN + "115-db4f751fc89b139f9117593263364864-640-0.webp",
+        },
+        {
+          id: "p5",
+          name: "Exquenta Mais Mu Performance - Pré-Treino - Tropical - 500g",
+          cat: "exquenta-500g",
+          checkoutUrl: "https://go.ironpayapp.com.br/atuuc",
+          img: CDN + "exxxxxquenta-torpical-500g-19fe7a1cb6d51e1c1c17508887506275-640-0.webp",
+          img2: CDN + "112-034ca12803299747da17593262368907-640-0.webp",
+        },
+        {
+          id: "p6",
+          name: "Exquenta Mais Mu Performance - Pré-Treino em Sachê - Amora e Melancia (15 sachês) - 300g",
+          cat: "saches",
+          checkoutUrl: "https://go.ironpayapp.com.br/ld7os",
+          img: CDN + "sache-pl-exquenta-amoooora-4f381334997398c80d17508950405522-640-0.webp",
+          img2: CDN + "sache-pl-exquenta-amoooora-2-1a41413ca5b78772e717508950213874-640-0.webp",
+        },
+        {
+          id: "p7",
+          name: "Exquenta Mais Mu Performance - Pré-Treino em Sachê - Pink Lemonade - (15 sachês) - 300g",
+          cat: "saches",
+          checkoutUrl: "https://go.ironpayapp.com.br/eebnq",
+          img: CDN + "sache-pl-985f835e3493d85d7d17508937396677-640-0.webp",
+          img2: CDN + "sache-pl-exquenta-9f3688c5781913f11c17508937392070-640-0.webp",
+        },
+        {
+          id: "p8",
+          name: "Exquenta Mais Mu Performance - Pré-Treino - Tropical - 300g",
+          cat: "exquenta-300g",
+          checkoutUrl: "https://go.ironpayapp.com.br/vhy5e",
+          img: CDN + "exxxxquenta-manga-500g-2-dd53daeb023bbde0eb17508919137807-640-0.webp",
+          img2: CDN + "imagens-secundarias-amazon-meli_01-49ca228afff4b0c83817537404623924-640-0.webp",
+        },
+        {
+          id: "p9",
+          name: "Exquenta Mais Mu Performance - Pré-Treino - Manga - 300g",
+          cat: "exquenta-300g",
+          checkoutUrl: "https://go.ironpayapp.com.br/3pkvn",
+          img: CDN + "exxxxquenta-manga-500g-3-88dceb50148415261a17508922290012-640-0.webp",
+          img2: CDN + "exquenta-manga-e98f5ae22a6927dc5217605396477775-640-0.webp",
+        },
+        {
+          id: "p10",
+          name: "Exquenta Mais Mu Performance - Pré-Treino - Pink Lemonade - 300g",
+          cat: "exquenta-300g",
+          checkoutUrl: "https://go.ironpayapp.com.br/uio3w",
+          img: CDN + "exxxxquenta-manga-500g-4-970f1ea8fc9156d47417508924947526-640-0.webp",
+          img2: CDN + "exquenta-pink-300-0e8edd0e40cd9f1c1117605394366934-640-0.webp",
+        },
+        {
+          id: "p11",
+          name: "Exquenta Mais Mu Performance - Pré-Treino - Amora e Melancia - 300g",
+          cat: "exquenta-300g",
+          checkoutUrl: "https://go.ironpayapp.com.br/qkygz",
+          img: CDN + "exxxxquenta-manga-500g-5-7d46e350549c15035417508928042780-640-0.webp",
+          img2: CDN + "pote-whey-pacoquita-5-9af64073a55aecaf8a17508929012960-640-0.webp",
+        },
+        {
+          id: "p12",
+          name: "Exquenta Mais Mu Performance - Pré-Treino em Sachê - Manga (15 sachês) - 300g",
+          cat: "saches",
+          checkoutUrl: "https://go.ironpayapp.com.br/3pkvn",
+          img: CDN + "display-sache-de-exquenta-manga-2-55e034d27d7f6df49a17615910619217-640-0.webp",
+          img2: CDN + "display-sache-de-exquenta-manga-36a5dabde34a046a1117615910616168-640-0.webp",
+        },
+      ]);
+
+      let cart = [];
+      let activeCategory = null;
+      let addToCartLoading = false;
+
+      const addLoadingOverlay = document.getElementById("addLoadingOverlay");
+
+      const formatBRL = (n) =>
+        n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+      function parsePriceField(el) {
+        const s = String(el.value).trim();
+        if (!s) return NaN;
+        if (s.includes(",")) return parseFloat(s.replace(/\./g, "").replace(",", "."));
+        return parseFloat(s);
+      }
+
+      function syncCategoryLinksUi() {
+        document.querySelectorAll(".cat-filter-link").forEach((a) => {
+          const slug = a.getAttribute("data-mm-cat");
+          a.classList.toggle("is-active", slug === activeCategory);
+        });
+      }
+
+      const ratingPresets = [
+        { rating: 5, reviews: 5 },
+        { rating: 4.5, reviews: 102 },
+        { rating: 4, reviews: 48 },
+        { rating: 5, reviews: 89 },
+        { rating: 4.5, reviews: 156 },
+        { rating: 4, reviews: 34 },
+        { rating: 4.5, reviews: 67 },
+        { rating: 5, reviews: 201 },
+        { rating: 4.5, reviews: 44 },
+        { rating: 4, reviews: 91 },
+        { rating: 5, reviews: 73 },
+        { rating: 4.5, reviews: 120 },
+      ];
+
+      function ratingRowHtml(rating, reviews) {
+        const pct = Math.min(100, Math.max(0, (rating / 5) * 100));
+        const label = rating.toFixed(1).replace(".", ",");
+        return `
+          <div class="p-rating" aria-label="Nota ${label} de 5. ${reviews} avaliações">
+            <span class="p-stars-wrap" aria-hidden="true">
+              <span class="p-stars-bg">★★★★★</span>
+              <span class="p-stars-fill" style="width:${pct}%">★★★★★</span>
+            </span>
+            <span class="p-reviews">(${reviews})</span>
+          </div>`;
+      }
+
+      function renderGrid(list) {
+        const grid = document.getElementById("productGrid");
+        if (!list.length) {
+          grid.innerHTML =
+            '<p class="grid-empty" role="status">Nenhum produto com os filtros atuais.</p>';
+          return;
+        }
+        grid.innerHTML = list
+          .map((p, idx) => {
+            const ri = ratingPresets[idx % ratingPresets.length];
+            const { rating, reviews } = ri;
+            return `
+        <article class="product-card" data-id="${p.id}" data-price="${p.price}">
+          ${ratingRowHtml(rating, reviews)}
+          <p class="p-name">${p.name}</p>
+          <div class="img-wrap">
+            <a href="#" aria-label="${p.name}">
+              <img class="primary" src="${p.img}" alt="" loading="lazy" width="640" height="640" />
+              <img class="secondary" src="${p.img2}" alt="" loading="lazy" width="640" height="640" />
+              ${
+                p.off
+                  ? `<span class="labels"><span class="label-off">-${p.off}% OFF</span></span>`
+                  : ""
+              }
+            </a>
+          </div>
+          <div class="p-info">
+            <div class="p-prices">
+              ${
+                p.compare != null
+                  ? `<span class="p-compare">${formatBRL(p.compare)}</span>`
+                  : ""
+              }
+              <span class="p-price">${formatBRL(p.price)}</span>
+            </div>
+            <div class="p-install">${p.inst}x de R$${p.instVal} sem juros</div>
+            <button type="button" class="btn-quero js-add" data-id="${p.id}">Quero</button>
+          </div>
+        </article>`;
+          })
+          .join("");
+      }
+
+      const PROMO_ONE_ITEM_MSG =
+        "A promoção só vale para 1 item por pedido. Remova o item do carrinho para escolher outro.";
+
+      document.getElementById("productGrid").addEventListener("click", (e) => {
+        const btn = e.target.closest(".js-add");
+        if (!btn) return;
+        e.preventDefault();
+        if (addToCartLoading) return;
+        if (cart.length >= 1) {
+          showToast(PROMO_ONE_ITEM_MSG);
+          return;
+        }
+        const id = btn.getAttribute("data-id");
+        const item = products.find((x) => x.id === id);
+        if (!item) return;
+        addToCartLoading = true;
+        addLoadingOverlay.classList.add("is-visible");
+        addLoadingOverlay.setAttribute("aria-hidden", "false");
+        document.body.classList.add("add-loading-open");
+        window.setTimeout(() => {
+          cart.push({ ...item, qty: 1 });
+          refreshCart();
+          addLoadingOverlay.classList.remove("is-visible");
+          addLoadingOverlay.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("add-loading-open");
+          addToCartLoading = false;
+          showToast("Adicionado ao carrinho!");
+        }, 1000);
       });
 
-      setInterval(() => {
-        if (!thumbs.length) return;
-        const nextIndex = (currentThumbIndex + 1) % thumbs.length;
-        activateThumb(nextIndex);
-      }, 2000);
+      const productOrder = new Map(products.map((p, i) => [p.id, i]));
 
-      const variants = document.querySelectorAll(".variant");
-      const stickyPrice = document.getElementById("stickyPrice");
-      const oldPriceEl = document.getElementById("oldPrice");
-      const newPriceEl = document.getElementById("newPrice");
-      const offBadgeEl = document.getElementById("offBadge");
-      const baseUnitPrice = 179.9;
-      const baseComparePrice = 376;
-      const CHECKOUT_1_UN =
-        "https://seguro.kampsmart.shop/pay/47e04429-5aab-4a4b-9234-326bec71687f";
-      const CHECKOUT_KIT_2 =
-        "https://seguro.kampsmart.shop/pay/4425c635-8655-48b1-b2b9-49fecc199670";
-      let selectedKitUnits = 1;
-      let selectedKitName = "1 UN";
-      let selectedKitPrice = baseUnitPrice;
-      const checkoutBtn = document.querySelector(".checkout-btn");
-      const syncCheckoutUrl = () => {
-        if (!checkoutBtn) return;
-        checkoutBtn.href = selectedKitUnits === 2 ? CHECKOUT_KIT_2 : CHECKOUT_1_UN;
-      };
+      function sortedCopy(mode) {
+        const copy = [...products];
+        if (mode === "price-asc") copy.sort((a, b) => a.price - b.price);
+        else if (mode === "price-desc") copy.sort((a, b) => b.price - a.price);
+        else if (mode === "name-asc") copy.sort((a, b) => a.name.localeCompare(b.name));
+        else if (mode === "name-desc") copy.sort((a, b) => b.name.localeCompare(a.name));
+        else if (mode === "created-desc")
+          copy.sort((a, b) => (productOrder.get(b.id) ?? 0) - (productOrder.get(a.id) ?? 0));
+        else if (mode === "created-asc")
+          copy.sort((a, b) => (productOrder.get(a.id) ?? 0) - (productOrder.get(b.id) ?? 0));
+        else if (mode === "best-selling") copy.sort((a, b) => b.price - a.price);
+        return copy;
+      }
 
-      const getKitPrice = (units) => {
-        if (units === 2) return baseUnitPrice * 2 * 0.8;
-        return baseUnitPrice;
-      };
+      function updateGrid() {
+        const mode = document.getElementById("sortSelect").value;
+        let list = sortedCopy(mode);
+        if (activeCategory) list = list.filter((p) => p.cat === activeCategory);
+        const minV = parsePriceField(document.getElementById("minP"));
+        const maxV = parsePriceField(document.getElementById("maxP"));
+        if (!Number.isNaN(minV)) list = list.filter((p) => p.price >= minV);
+        if (!Number.isNaN(maxV)) list = list.filter((p) => p.price <= maxV);
+        renderGrid(list);
+      }
 
-      const getComparePrice = (units) => {
-        if (units === 2) return baseComparePrice * 2;
-        return baseComparePrice;
-      };
+      document.getElementById("sortSelect").addEventListener("change", updateGrid);
 
-      const updateDisplayedPrice = () => {
-        const qtyMultiplier = Math.max(1, value || 1);
-        const unitKitPrice = getKitPrice(selectedKitUnits);
-        const unitComparePrice = getComparePrice(selectedKitUnits);
-        selectedKitPrice = unitKitPrice;
-        const selectedComparePrice = unitComparePrice * qtyMultiplier;
-        const selectedFinalPrice = unitKitPrice * qtyMultiplier;
-        const discountPercent = Math.round((1 - selectedFinalPrice / selectedComparePrice) * 100);
-
-        if (stickyPrice) stickyPrice.textContent = selectedFinalPrice.toFixed(2).replace(".", ",");
-        if (newPriceEl) newPriceEl.textContent = formatBRL(selectedFinalPrice);
-        if (oldPriceEl) oldPriceEl.textContent = formatBRL(selectedComparePrice);
-        if (offBadgeEl) offBadgeEl.textContent = `${discountPercent}% OFF`;
-      };
-      variants.forEach((item) => {
-        item.addEventListener("click", () => {
-          variants.forEach((x) => x.classList.remove("active"));
-          item.classList.add("active");
-          selectedKitUnits = Number(item.dataset.units || "1");
-          selectedKitName = item.textContent ? item.textContent.trim() : "1 UN";
-          updateDisplayedPrice();
-          syncCheckoutUrl();
-        });
-      });
-
-      let value = 1;
+      document.getElementById("applyPrice").addEventListener("click", updateGrid);
 
       const cartDrawer = document.getElementById("cartDrawer");
       const cartOverlay = document.getElementById("cartOverlay");
-      const addToCart = document.getElementById("addToCart");
-      const cartClose = document.getElementById("cartClose");
-      const cartKit = document.getElementById("cartKit");
-      const cartQtd = document.getElementById("cartQtd");
-      const cartItemPrice = document.getElementById("cartItemPrice");
+      const cartBody = document.getElementById("cartBody");
+      const cartFooter = document.getElementById("cartFooter");
+      const cartEmpty = document.getElementById("cartEmpty");
       const cartSubtotal = document.getElementById("cartSubtotal");
-      const stickyBuy = document.getElementById("stickyBuy");
+      const openCartBtn = document.getElementById("openCart");
+      const cartCountEl = document.getElementById("cartCount");
 
-      const formatBRL = (numberValue) =>
-        numberValue.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+      function refreshCart() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        cartCountEl.textContent = String(cart.length);
+        openCartBtn.setAttribute("data-count", String(cart.length));
 
-      const openCart = () => {
-        if (!cartDrawer || !cartOverlay) return;
+        if (!cart.length) {
+          cartEmpty.hidden = false;
+          cartFooter.hidden = true;
+          cartBody.querySelectorAll(".cart-item").forEach((n) => n.remove());
+          return;
+        }
+        cartEmpty.hidden = true;
+        cartFooter.hidden = false;
+        cartBody.querySelectorAll(".cart-item").forEach((n) => n.remove());
+        cart.forEach((item, idx) => {
+          const el = document.createElement("article");
+          el.className = "cart-item";
+          el.innerHTML = `
+            <img src="${item.img}" alt="" width="72" height="72" />
+            <div>
+              <strong>${item.name}</strong>
+              <div class="cart-price">${formatBRL(item.price)}</div>
+              <button type="button" class="cart-close" data-idx="${idx}" style="margin-top:8px;font-size:12px;width:auto;height:auto;padding:4px 8px">Remover</button>
+            </div>`;
+          cartBody.appendChild(el);
+        });
+        cartBody.querySelectorAll("button[data-idx]").forEach((b) => {
+          b.addEventListener("click", () => {
+            const i = Number(b.getAttribute("data-idx"));
+            cart.splice(i, 1);
+            refreshCart();
+          });
+        });
+        cartSubtotal.textContent = formatBRL(total);
+      }
+
+      function openCart() {
         cartDrawer.classList.add("open");
         cartOverlay.classList.add("open");
         cartDrawer.setAttribute("aria-hidden", "false");
-      };
-
-      const closeCart = () => {
-        if (!cartDrawer || !cartOverlay) return;
+      }
+      function closeCart() {
         cartDrawer.classList.remove("open");
         cartOverlay.classList.remove("open");
         cartDrawer.setAttribute("aria-hidden", "true");
-      };
-
-      const refreshCartSummary = () => {
-        const subtotal = selectedKitPrice * value;
-        if (cartKit) cartKit.textContent = `Kit: ${selectedKitName}`;
-        if (cartQtd) cartQtd.textContent = `Quantidade: ${value}`;
-        if (cartItemPrice) cartItemPrice.textContent = formatBRL(selectedKitPrice);
-        if (cartSubtotal) cartSubtotal.textContent = formatBRL(subtotal);
-        syncCheckoutUrl();
-      };
-
-      if (addToCart) {
-        addToCart.addEventListener("click", () => {
-          refreshCartSummary();
-          openCart();
-        });
       }
 
-      if (stickyBuy) {
-        stickyBuy.addEventListener("click", (event) => {
-          event.preventDefault();
-          refreshCartSummary();
-          openCart();
-        });
-      }
-      if (cartClose) cartClose.addEventListener("click", closeCart);
-      if (cartOverlay) cartOverlay.addEventListener("click", closeCart);
-      updateDisplayedPrice();
-      syncCheckoutUrl();
+      openCartBtn.addEventListener("click", openCart);
+      document.getElementById("cartClose").addEventListener("click", closeCart);
+      cartOverlay.addEventListener("click", closeCart);
 
-      const cepInput = document.getElementById("cepInput");
-      const cepBtn = document.getElementById("cepBtn");
-      const cepResult = document.getElementById("cepResult");
-
-      const maskCep = (valueText) => {
-        const digits = valueText.replace(/\D/g, "").slice(0, 8);
-        if (digits.length <= 5) return digits;
-        return `${digits.slice(0, 5)}-${digits.slice(5)}`;
-      };
-
-      if (cepInput) {
-        cepInput.addEventListener("input", () => {
-          cepInput.value = maskCep(cepInput.value);
-        });
-      }
-
-      const calculateCep = async () => {
-        if (!cepResult) return;
-        const typedCep = cepInput ? cepInput.value.trim() : "";
-        const digitsCep = typedCep.replace(/\D/g, "");
-        if (!digitsCep) {
-          cepResult.textContent = "Digite um CEP para calcular.";
+      document.getElementById("checkoutBtn").addEventListener("click", () => {
+        if (!cart.length) return;
+        const uniqueIds = new Set(cart.map((i) => i.id));
+        if (uniqueIds.size > 1) {
+          showToast(
+            "Cada produto tem um link próprio no IronPay. Deixe só um item no carrinho para finalizar."
+          );
           return;
         }
-        if (digitsCep.length !== 8) {
-          cepResult.textContent = "CEP inválido. Digite um CEP com 8 números.";
+        const url = cart[0].checkoutUrl;
+        if (!url || !String(url).startsWith("http")) {
+          showToast("Link de pagamento não configurado para este item.");
           return;
         }
+        window.location.assign(url);
+      });
 
-        cepResult.innerHTML = '<span class="cep-loading"><span class="spinner"></span>Consultando CEP...</span>';
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 2200);
+      }
 
-        try {
-          await new Promise((resolve) => setTimeout(resolve, 1200));
-          const response = await fetch(`https://viacep.com.br/ws/${digitsCep}/json/`);
-          if (!response.ok) throw new Error("Falha na consulta");
-          const data = await response.json();
-          if (data.erro) {
-            cepResult.textContent = "CEP não encontrado. Confira e tente novamente.";
-            return;
-          }
-          const regiao = `${data.localidade || "Cidade não identificada"} - ${data.uf || "--"}`;
-          const cepFormatado = maskCep(digitsCep);
-          cepResult.textContent = `CEP ${cepFormatado} | Região: ${regiao}. Frete grátis e entrega estimada em 2 dias úteis.`;
-        } catch (_error) {
-          cepResult.textContent = "Não foi possível consultar este CEP agora. Tente novamente em instantes.";
-        }
-      };
+      const mmOverlaySort = document.getElementById("mmOverlaySort");
+      const mmModalSort = document.getElementById("mmModalSort");
+      const mmOverlayFilters = document.getElementById("mmOverlayFilters");
+      const mmModalFilters = document.getElementById("mmModalFilters");
+      const minPm = document.getElementById("minPm");
+      const maxPm = document.getElementById("maxPm");
+      const minP = document.getElementById("minP");
+      const maxP = document.getElementById("maxP");
+      const sortSelect = document.getElementById("sortSelect");
+      const mmSortList = document.getElementById("mmSortList");
 
-      if (cepBtn) cepBtn.addEventListener("click", calculateCep);
-      if (cepInput) {
-        cepInput.addEventListener("keydown", (event) => {
-          if (event.key === "Enter") calculateCep();
+      function setMobileControlsTop() {
+        const header = document.querySelector(".site-header");
+        const h = header ? Math.round(header.getBoundingClientRect().height) : 72;
+        document.documentElement.style.setProperty("--mobile-controls-top", `${h}px`);
+      }
+      setMobileControlsTop();
+      window.addEventListener("resize", setMobileControlsTop);
+
+      function mmBodyLock(on) {
+        document.body.classList.toggle("mm-modal-open", on);
+      }
+
+      function openSortModal() {
+        syncMmSortUi();
+        mmOverlaySort.classList.add("is-open");
+        mmModalSort.classList.add("is-open");
+        mmOverlaySort.setAttribute("aria-hidden", "false");
+        mmModalSort.setAttribute("aria-hidden", "false");
+        mmBodyLock(true);
+      }
+
+      function closeSortModal() {
+        mmOverlaySort.classList.remove("is-open");
+        mmModalSort.classList.remove("is-open");
+        mmOverlaySort.setAttribute("aria-hidden", "true");
+        mmModalSort.setAttribute("aria-hidden", "true");
+        mmBodyLock(mmOverlayFilters.classList.contains("is-open"));
+      }
+
+      function syncPriceInputsToModal() {
+        minPm.value = minP.value;
+        maxPm.value = maxP.value;
+      }
+
+      function openFiltersModal() {
+        syncPriceInputsToModal();
+        mmOverlayFilters.classList.add("is-open");
+        mmModalFilters.classList.add("is-open");
+        mmOverlayFilters.setAttribute("aria-hidden", "false");
+        mmModalFilters.setAttribute("aria-hidden", "false");
+        mmBodyLock(true);
+      }
+
+      function closeFiltersModal() {
+        mmOverlayFilters.classList.remove("is-open");
+        mmModalFilters.classList.remove("is-open");
+        mmOverlayFilters.setAttribute("aria-hidden", "true");
+        mmModalFilters.setAttribute("aria-hidden", "true");
+        mmBodyLock(mmOverlaySort.classList.contains("is-open"));
+      }
+
+      function syncMmSortUi() {
+        const v = sortSelect.value;
+        mmSortList.querySelectorAll(".mm-sort-item").forEach((btn) => {
+          btn.classList.toggle("is-selected", btn.getAttribute("data-mm-sort") === v);
         });
       }
 
-      const topBarText = document.getElementById("topBarText");
-      if (topBarText) {
-        const today = new Date();
-        const dia = String(today.getDate()).padStart(2, "0");
-        const mes = String(today.getMonth() + 1).padStart(2, "0");
-        const ano = today.getFullYear();
-        topBarText.textContent = `FRETE GRÁTIS HOJE DIA ${dia}/${mes}/${ano}`;
-      }
+      sortSelect.addEventListener("change", syncMmSortUi);
+      syncMmSortUi();
+
+      mmSortList.querySelectorAll(".mm-sort-item").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const v = btn.getAttribute("data-mm-sort");
+          sortSelect.value = v;
+          syncMmSortUi();
+          updateGrid();
+          closeSortModal();
+        });
+      });
+
+      document.getElementById("openSort").addEventListener("click", (e) => {
+        e.preventDefault();
+        if (mmModalSort.classList.contains("is-open")) closeSortModal();
+        else {
+          closeFiltersModal();
+          openSortModal();
+        }
+      });
+
+      document.getElementById("openFilter").addEventListener("click", (e) => {
+        e.preventDefault();
+        if (mmModalFilters.classList.contains("is-open")) closeFiltersModal();
+        else {
+          closeSortModal();
+          openFiltersModal();
+        }
+      });
+
+      document.getElementById("mmCloseSort").addEventListener("click", closeSortModal);
+      mmOverlaySort.addEventListener("click", closeSortModal);
+      document.getElementById("mmCloseFilters").addEventListener("click", closeFiltersModal);
+      mmOverlayFilters.addEventListener("click", closeFiltersModal);
+
+      document.querySelectorAll(".mm-acc-trigger").forEach((tr) => {
+        tr.addEventListener("click", () => {
+          const acc = tr.closest(".mm-accordion");
+          const open = !acc.classList.contains("is-open");
+          acc.classList.toggle("is-open", open);
+          tr.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
+
+      document.getElementById("mmApplyPrice").addEventListener("click", () => {
+        minP.value = minPm.value;
+        maxP.value = maxPm.value;
+        updateGrid();
+        closeFiltersModal();
+      });
+
+      document.querySelectorAll(".cat-filter-link").forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const slug = a.getAttribute("data-mm-cat");
+          activeCategory = activeCategory === slug ? null : slug;
+          syncCategoryLinksUi();
+          updateGrid();
+          if (mmModalFilters.classList.contains("is-open")) closeFiltersModal();
+        });
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key !== "Escape") return;
+        if (mmModalSort.classList.contains("is-open")) closeSortModal();
+        if (mmModalFilters.classList.contains("is-open")) closeFiltersModal();
+      });
+      document.getElementById("btnMenu").addEventListener("click", () => {
+        document.getElementById("sidebar").scrollIntoView({ behavior: "smooth" });
+      });
+
+      syncCategoryLinksUi();
+      updateGrid();
+
+      (function fillPromoBar() {
+        const el = document.getElementById("topBarText");
+        if (!el) return;
+        const d = new Date();
+        const dia = String(d.getDate()).padStart(2, "0");
+        const mes = String(d.getMonth() + 1).padStart(2, "0");
+        const ano = d.getFullYear();
+        el.textContent = `Promoção Páscoa — apenas hoje (${dia}/${mes}/${ano})`;
+      })();
     </script>
   </body>
 </html>
